@@ -31,8 +31,14 @@ public class BuscadorController {
 	
 	@PostMapping(value="alta",produces=MediaType.TEXT_PLAIN_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
 	public String altaResultado(@RequestBody ResultadoDto resultado) {
-		
+		System.out.println("alta de "+resultado.getUrl());
 		return String.valueOf(service.agregar(resultado));
+	}
+	
+	@GetMapping(value="buscarUrl/{url}",produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResultadoDto buscarResultadosUrl(@PathVariable("url") String url) {
+		return service.buscarPorUrl(url);
+		
 	}
 	
 	
