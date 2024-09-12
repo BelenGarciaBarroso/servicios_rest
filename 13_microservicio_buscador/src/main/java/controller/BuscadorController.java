@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import model.ResultadoDto;
@@ -35,8 +36,8 @@ public class BuscadorController {
 		return String.valueOf(service.agregar(resultado));
 	}
 	
-	@GetMapping(value="buscarUrl/{url}",produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResultadoDto buscarResultadosUrl(@PathVariable("url") String url) {
+	@GetMapping(value="buscarUrl",produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResultadoDto buscarResultadosUrl(@RequestParam("url") String url) {
 		return service.buscarPorUrl(url);
 		
 	}
