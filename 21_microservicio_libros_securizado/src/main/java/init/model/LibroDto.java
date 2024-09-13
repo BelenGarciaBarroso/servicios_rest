@@ -7,6 +7,7 @@ public class LibroDto {
 	private double precio;
 	private int paginas;
 	private TemaDto temaDto;
+	
 	public LibroDto(int isbn, String titulo, String autor, double precio, int paginas, TemaDto temaDto) {
 		super();
 		this.isbn = isbn;

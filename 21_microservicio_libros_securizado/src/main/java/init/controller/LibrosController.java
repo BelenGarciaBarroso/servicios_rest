@@ -42,4 +42,10 @@ public class LibrosController {
 		}
 		return new ResponseEntity<>(null,HttpStatus.CONFLICT);
 	}
+	
+	@GetMapping(value="todos",produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<LibroDto> todosLibros(){
+		return librosService.todosLibros();
+		
+	}
 }
