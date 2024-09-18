@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
+import jakarta.annotation.PostConstruct;
 import model.Formacion;
 
 @Service
@@ -18,12 +19,17 @@ public class FormacionServiceImpl implements FormacionService {
 	String user;
 	@Value("${pass}")
 	String pass;
-	@Value("${url.cursos}")
+	
 	String url;
 	RestClient restClient;
 	public FormacionServiceImpl(RestClient restClient) { // inyección al 
 		super();
 		this.restClient = restClient;
+	}
+	
+	@PostConstruct
+	public void init() {
+		url="http://servicio-cursos/cursos/";
 	}
 
 	@Override
